@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Calculator using html , css & js, by Qasim Sarwari." />
+  <link rel="stylesheet" href="style.css" />
+  <title>Calculator | by Qasim</title>
+</head>
+<body>
+  <form class="box" name="box">
+    <input type="text" name="num" id="input" readonly />
+    <div class="btns">
+      <span id="ac" class="btn" onclick="document.box.num.value ='';navigator.vibrate(200)">AC</span>
+      <span id="del" onclick="del()">❎</span>
+      <span id="char" onclick="insert('/')">/</span>
+      <span id="char" style="padding-top:5px" onclick="insert('*')">*</span>
+      <span id="char" style="padding-bottom: 5px" onclick="insert('-')">ـــ</span>
+    </div>
+    <div class="btns">
+      <span class="num" onclick="insert(1)">1</span>
+      <span class="num" onclick="insert(2)">2</span>
+      <span class="num" onclick="insert(3)">3</span>
+      <span id="plus" class="num" onclick="insert('+')">+</span>
+    </div>
+    <div class="btns">
+      <span class="num" onclick="insert(4)">4</span>
+      <span class="num" onclick="insert(5)">5</span>
+      <span class="num" onclick="insert(6)">6</span>
+      <span id="eval" class="num" onclick="sum()">=</span>
+    </div>
+    <div class="btns">
+      <span class="num" onclick="insert(7)">7</span>
+      <span class="num" onclick="insert(8)">8</span>
+      <span class="num" onclick="insert(9)">9</span>
+      <span class="num" style="padding-bottom:10px" onclick="insert('.')">.</span>
+      <span class="num" onclick="insert('0')">0</span>
+    </div>
+  </form>
+  <script type="text/javascript">
+    function del() {
+      document.box.num.value = document.box.num.value.slice(0, -1);
+      navigator.vibrate(100);
+    }
+    var input = document.querySelector("#input");
+    function insert(num) {
+      input.value += num;
+      navigator.vibrate(50);
+    }
+    function sum() {
+      document.box.num.value = eval(box.num.value);
+      navigator.vibrate(150)
+    }
+  </script>
+</body>
+</html>
